@@ -80,15 +80,14 @@ public class King extends ChessPiece {
      *            The destination tile
      */
     protected boolean isValid(Tile t1, Tile t2) {
-        boolean validity;
+        boolean validity = false;
         int moveRow = Math.abs(t1.rowNum - t2.rowNum);
         int moveColumn = Math.abs(t1.colNum - t2.colNum);
         ChessPiece tile2P = t2.getPiece();
         
-        if (moveRow == 1 && moveColumn == 1) {
+        if (moveRow == 1 && moveColumn == 1 ||
+                moveRow == 1 || moveColumn == 1) {
             validity = true;
-        } else {
-            validity = false;
         }
         
         if (tile2P != null) {
